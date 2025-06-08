@@ -1,4 +1,4 @@
-import json
+import json,os
 from channels.generic.websocket import WebsocketConsumer
 from google import genai
 
@@ -10,10 +10,9 @@ class MyConsumer(WebsocketConsumer):
         self.send("Websocket Disconnetd")
 
     def receive(self, text_data):
-        key='AIzaSyAnrPNTEbAuHQW_eesOF3uv3Zy_bMqOTCw'
+        api_key = os.getenv("GOOGLE_API_KEY")
         text_data=json.loads(text_data)
-        client = genai.Client(api_key=key)
-
+        client = genai.Client(api_key=api_key)
         try:
             response = client.models.generate_content(
             model="gemini-2.0-flash",
