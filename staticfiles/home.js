@@ -1,4 +1,4 @@
-const websocket = new WebSocket("wss://localhost:8000/ws/chat/");
+const websocket = new WebSocket("wss://ai-chat-vscs.onrender.com/ws/chat/");
 const chatBox = document.getElementById("chat-box");
 const input = document.getElementById("message-input");
 const sendBtn = document.getElementById("send-btn");

@@ -34,9 +34,17 @@ body::before {
 }
 
 @keyframes animateBg {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Chat wrapper */
@@ -51,7 +59,7 @@ body::before {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
   background: rgba(30, 30, 40, 0.6);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Header */
@@ -62,56 +70,63 @@ body::before {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Chat body */
 .chat-body {
-  padding: 20px;
+  width: 100%;
+  max-height: 500px;
+  border: 1px solid #ccc;
+  padding: 10px;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: rgba(28, 28, 36, 0.8);
+  font-family: sans-serif;
 }
 
 /* Message styles */
 .message {
-  max-width: 75%;
-  padding: 12px 16px;
-  border-radius: 18px;
-  word-wrap: break-word;
-  animation: fadeIn 0.3s ease;
-}
-
-.message.user {
-  align-self: flex-end;
-  background: linear-gradient(to right, #0099ff, #00ccff);
+  
+  padding: 10px;
   color: white;
-  border-bottom-right-radius: 4px;
+  margin: 8px 0;
+  gap: 10px;
+  word-spacing: 5px;
+  border-radius: 10px;
+  word-break: break-word;
 }
 
-.message.server {
-  align-self: flex-start;
-  background: #374151;
-  color: #e5e5e5;
-  border-bottom-left-radius: 4px;
+.user {
+  max-width: 75%;
+  background-color: transparent;
+  margin-left: auto;
+  text-align: left;
+  display: flex;
+  justify-content: end;
+
+}
+
+.server{
+  max-width: 100%;
+  background-color: transparent ;
+  margin-right: auto;
+  text-align: left;
+  margin-right: auto;
 }
 
 /* Input area */
 .chat-footer {
   display: flex;
   padding: 16px;
-  background: rgba(20,20,25,0.8);
-  border-top: 1px solid rgba(255,255,255,0.1);
+  background: rgba(20, 20, 25, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   gap: 10px;
 }
 
 .chat-footer input {
   flex: 1;
   padding: 12px 16px;
-  background: rgba(35,35,40,0.8);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(35, 35, 40, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   color: white;
   font-size: 1rem;
@@ -149,7 +164,7 @@ body::before {
 }
 
 .chat-body::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
 
@@ -159,6 +174,7 @@ body::before {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0px);
