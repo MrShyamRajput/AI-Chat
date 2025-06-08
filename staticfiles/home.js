@@ -1,18 +1,36 @@
-const websocket=new websocket("'ws://localhost:8000/chat/'")
+const websocket = new WebSocket("wss://localhost:8000/ws/chat/");
+const chatBox = document.getElementById("chat-box");
+const input = document.getElementById("message-input");
+const sendBtn = document.getElementById("send-btn");
 
-websocket.onopen=function(){
-    console.log("Websocket connected message from js")
-}
+websocket.onopen = () => {
+  console.log("connected ho gaya bro");
+};
 
-websocket.onmessage=function(e){
-    console.log(e)
-}
+websocket.onmessage = (e) => {
+  
+  data = JSON.parse(e.data);
+  mesg = data.message;
+  chatBox.scrollTop = chatBox.scrollHeight;
+  chatBox.innerHTML += `<div class="server message">
+       ${mesg}
+      </div>`;
+  console.log(mesg);
+};
 
-websocket.onclose=function(){
-    console.log("Websokcet closed..")
-}
+const sendMessage = () => {
+  if (input.value === "") return;
+  websocket.send(JSON.stringify({ message: input.value }));
+  chatBox.innerHTML += `<div class="user message">
+        ${input.value}
+      </div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+  input.value = "";
+  input.focus();
+};
 
-
-sendMessage=function(){
-    console.log('button clicked')
-}
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+})
