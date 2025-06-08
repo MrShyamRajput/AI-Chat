@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h#k7h2@+7^c81+#2)vr62kta1vmm3xc#4r6mo(p317ow11sh3q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ai-chat-vscs.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
