@@ -43,7 +43,7 @@ On Windows: env\Scripts\activate
 # Install dependencies:
 pip install -r requirements.txt
 
-# Set environment variables (e.g. API keys):
+# Set environment variables (e.g. API keys): in terminal
 export GOOGLE_API_KEY='your_api_key_here'
 
 # Apply migrations:
